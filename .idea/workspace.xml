@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a9afadae-a241-4480-a14e-e7d1dbd7275f" name="Changes" comment="adding requir">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/encodeFile.p" beforeDir="false" afterPath="$PROJECT_DIR$/encodeFile.p" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face-auth/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/face-auth/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face-auth/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/face-auth/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face-auth/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/face-auth/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face-auth/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/face-auth/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face-auth/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/face-auth/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;PedroTresmondi&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/PedroTresmondi/face-recognition.git&quot;,
+    &quot;accountId&quot;: &quot;2f23e3a1-5b13-4ca8-8db1-253dd804dacd&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2iQibWUiXb3uYiax8ZmaL9iIX5t" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.AddDataToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;Python.EncodeGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.backupCode.executor&quot;: &quot;Run&quot;,
+    &quot;Python.firebase_config.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pedro\PycharmProjects\face-recognition" />
+      <recent name="C:\Users\pedro\PycharmProjects\face-recognition\Images" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.18034.82" />
+        <option value="bundled-python-sdk-975db3bf15a3-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.18034.82" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a9afadae-a241-4480-a14e-e7d1dbd7275f" name="Changes" comment="" />
+      <created>1719429274380</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719429274380</updated>
+      <workItem from="1719429278543" duration="7812000" />
+      <workItem from="1719451153430" duration="3585000" />
+      <workItem from="1719455112811" duration="3809000" />
+      <workItem from="1719490368441" duration="889000" />
+      <workItem from="1719492350661" duration="10565000" />
+      <workItem from="1719520858320" duration="1854000" />
+      <workItem from="1719547731974" duration="328000" />
+      <workItem from="1719600215607" duration="363000" />
+      <workItem from="1719600618198" duration="2927000" />
+      <workItem from="1719606204041" duration="1723000" />
+    </task>
+    <task id="LOCAL-00001" summary="starting project">
+      <option name="closed" value="true" />
+      <created>1719431345939</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719431345939</updated>
+    </task>
+    <task id="LOCAL-00002" summary="starting project">
+      <option name="closed" value="true" />
+      <created>1719431385691</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719431385691</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adding face detection">
+      <option name="closed" value="true" />
+      <created>1719436235934</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719436235934</updated>
+    </task>
+    <task id="LOCAL-00004" summary="firebase integration">
+      <option name="closed" value="true" />
+      <created>1719458774484</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719458774484</updated>
+    </task>
+    <task id="LOCAL-00005" summary="firebase integration">
+      <option name="closed" value="true" />
+      <created>1719458850080</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719458850080</updated>
+    </task>
+    <task id="LOCAL-00006" summary="changing text position">
+      <option name="closed" value="true" />
+      <created>1719505005967</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719505005967</updated>
+    </task>
+    <task id="LOCAL-00007" summary="adding requir">
+      <option name="closed" value="true" />
+      <created>1719521559721</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1719521559721</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="starting project" />
+    <MESSAGE value="Adding face detection" />
+    <MESSAGE value="firebase integration" />
+    <MESSAGE value="changing text position" />
+    <MESSAGE value="adding requir" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding requir" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/face_recognition$AddDataToDatabase.coverage" NAME="AddDataToDatabase Coverage Results" MODIFIED="1719452100815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition$backupCode.coverage" NAME="backupCode Coverage Results" MODIFIED="1719457210261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition$main.coverage" NAME="main Coverage Results" MODIFIED="1719607779706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition$EncodeGenerator.coverage" NAME="EncodeGenerator Coverage Results" MODIFIED="1719500328254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition$firebase_config.coverage" NAME="firebase_config Coverage Results" MODIFIED="1719503301847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

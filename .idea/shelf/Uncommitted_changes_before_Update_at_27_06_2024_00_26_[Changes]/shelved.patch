@@ -1,0 +1,13 @@
+Index: .env
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.env b/.env
+new file mode 100644
+--- /dev/null	(date 1719452637751)
++++ b/.env	(date 1719452637751)
+@@ -0,0 +1,3 @@
++FIREBASE_CREDENTIALS_PATH=serviceAccountKey.json
++FIREBASE_DATABASE_URL=https://face-recognition-auth-92ac0-default-rtdb.firebaseio.com/
++FIREBASE_STORAGE_BUCKET=face-recognition-auth-92ac0.appspot.com
