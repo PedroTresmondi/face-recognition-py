@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     libtiff-dev \
     libopenblas-dev \
     liblapack-dev \
+    wget \
     && rm -rf /var/lib/apt/lists/*
 
 # Definir o diretório de trabalho
@@ -23,7 +24,9 @@ WORKDIR /app
 
 # Copiar os arquivos de requirements e instalar as dependências
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN pip install --upgrade pip
+RUN pip install cmake
+RUN pip install -r requirements.txt
 
 # Copiar o restante dos arquivos do projeto
 COPY . .
