@@ -1,5 +1,5 @@
-# Use uma imagem base oficial do Python
-FROM python:3.11-slim
+# Use uma imagem base oficial do Python que inclui ferramentas de construção
+FROM nvidia/cuda:11.2.2-cudnn8-runtime-ubuntu20.04
 
 # Instalar dependências do sistema necessárias para compilar bibliotecas
 RUN apt-get update && apt-get install -y \
@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install -y \
     liblapack-dev \
     wget \
     && rm -rf /var/lib/apt/lists/*
+
+# Verificar a instalação do cmake
+RUN cmake --version
 
 # Definir o diretório de trabalho
 WORKDIR /app
