@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: face-recognition-api
-    env: python
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
-    startCommand: python backend/app.py
-    preDeploy:
-      - apt-get update && apt-get install -y cmake g++
