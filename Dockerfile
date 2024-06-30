@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     python3.8 \
     python3.8-dev \
     python3-pip \
+    python3-distutils \
     cmake \
     g++ \
     make \
@@ -24,9 +25,10 @@ RUN apt-get update && apt-get install -y \
     liblapack-dev \
     wget \
     zlib1g-dev \
-    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    ffmpeg \
     libgl1-mesa-glx \
-    libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Definir o diretório de trabalho
@@ -45,9 +47,6 @@ RUN pip install -r requirements.txt
 
 # Copiar o restante dos arquivos do projeto
 COPY . .
-
-# Copiar o arquivo .env para o contêiner
-COPY .env .env
 
 # Expor a porta que o Flask usará
 EXPOSE 5000
