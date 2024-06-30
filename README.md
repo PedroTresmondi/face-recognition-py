@@ -83,7 +83,7 @@ FACE-RECOGNITION-AUTHENTICATION/
   - `react`
   - `firebase`
 
-## Instalação
+## Instalação (local)
 
 ### Backend
 
