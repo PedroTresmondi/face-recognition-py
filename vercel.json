@@ -1,17 +1,15 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "backend/app.py",
-      "use": "@vercel/python",
-      "config": {
-        "runtime": "python3.8"
-      }
+      "src": "Dockerfile",
+      "use": "@vercel/docker"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "backend/app.py"
+      "dest": "/backend/app.py"
     }
   ]
 }
