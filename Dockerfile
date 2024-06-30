@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y \
     libxext6 \
     ffmpeg \
     libgl1-mesa-glx \
+    libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Definir o diretório de trabalho
