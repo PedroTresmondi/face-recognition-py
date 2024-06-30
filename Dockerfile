@@ -1,14 +1,8 @@
-# Use uma imagem base oficial do Ubuntu
-FROM ubuntu:20.04
+# Use uma imagem base oficial do Python
+FROM python:3.11-slim
 
-# Definir variáveis de ambiente para evitar prompts durante a instalação
-ENV DEBIAN_FRONTEND=noninteractive
-
-# Atualizar e instalar dependências do sistema necessárias para compilar bibliotecas
+# Instalar dependências do sistema necessárias para compilar bibliotecas
 RUN apt-get update && apt-get install -y \
-    python3.11 \
-    python3.11-dev \
-    python3-pip \
     cmake \
     g++ \
     make \
@@ -23,22 +17,19 @@ RUN apt-get update && apt-get install -y \
     libopenblas-dev \
     liblapack-dev \
     wget \
-    zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Definir o diretório de trabalho
 WORKDIR /app
 
-# Atualizar o pip e instalar cmake
-RUN python3.11 -m pip install --upgrade pip
-RUN pip install cmake
-
-# Instalar dlib separadamente com suas dependências
-RUN pip install dlib==19.24.0
-
-# Copiar os arquivos de requirements e instalar as dependências do Python
+# Copiar os arquivos de requirements
 COPY requirements.txt .
-RUN pip3 install -r requirements.txt
+
+# Atualizar pip, wheel e cmake primeiro
+RUN pip install --upgrade pip wheel cmake
+
+# Instalar as dependências do Python
+RUN pip install -r requirements.txt
 
 # Copiar o restante dos arquivos do projeto
 COPY . .
@@ -47,4 +38,4 @@ COPY . .
 EXPOSE 5000
 
 # Comando para rodar a aplicação
-CMD ["python3.11", "backend/app.py"]
+CMD ["python3", "backend/app.py"]
