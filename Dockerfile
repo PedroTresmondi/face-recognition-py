@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copiar os arquivos de requirements e instalar as dependências
-COPY requirements.txt requirements.txt
+COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # Copiar o restante dos arquivos do projeto

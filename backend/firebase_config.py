@@ -5,7 +5,8 @@ from firebase_admin import credentials, storage, db
 
 load_dotenv()
 
-cred_path = os.getenv('FIREBASE_CREDENTIALS_PATH')
+# Caminho relativo ao diretório atual de execução
+cred_path = os.path.join(os.path.dirname(__file__), os.getenv('FIREBASE_CREDENTIALS_PATH'))
 print(f"Caminho do arquivo de credenciais: {cred_path}")
 
 database_url = os.getenv('FIREBASE_DATABASE_URL')
@@ -16,4 +17,3 @@ firebase_admin.initialize_app(cred, {
     'databaseURL': database_url,
     'storageBucket': storage_bucket
 })
-

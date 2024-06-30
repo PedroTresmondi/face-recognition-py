@@ -12,9 +12,11 @@ app = Flask(__name__)
 # Carregar encodings conhecidos
 def load_encodings():
     global encodeListKnown, personIds
-    with open('encodeFile.p', 'rb') as file:
+    encode_file_path = os.path.join(os.path.dirname(__file__), 'encodeFile.p')
+    with open(encode_file_path, 'rb') as file:
         encodeListKnownWithIds = pickle.load(file)
     encodeListKnown, personIds = encodeListKnownWithIds
+
 
 
 load_encodings()
