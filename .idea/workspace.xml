@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="555cad38-e0aa-4432-b5e9-4f73c0d62fe5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/face-recognition.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/face-recognition-py.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/face-recognition-py.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_06_2024_00_26_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_06_2024_00_26__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/face-auth/.firebase/hosting.ZGlzdA.cache" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/face-auth/.firebase/hosting.ZGlzdA.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/face-auth/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/face-auth/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/face-auth/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/face-auth/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/face-auth/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/face-auth/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/face-auth/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/face-auth/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/face-auth/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/face-auth/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +58,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/pedro/OneDrive/Área de Trabalho/face-recognition-py",
+    "last_opened_file_path": "C:/Users/pedro/OneDrive/Área de Trabalho/face-recognition",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -93,6 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1719678607984</updated>
       <workItem from="1719678609026" duration="1353000" />
+      <workItem from="1719717279468" duration="1146000" />
     </task>
     <servers />
   </component>

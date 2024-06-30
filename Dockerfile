@@ -5,6 +5,17 @@ FROM python:3.11-slim
 RUN apt-get update && apt-get install -y \
     cmake \
     g++ \
+    make \
+    libboost-python-dev \
+    libboost-system-dev \
+    libboost-thread-dev \
+    libboost-filesystem-dev \
+    libboost-serialization-dev \
+    libjpeg-dev \
+    libpng-dev \
+    libtiff-dev \
+    libopenblas-dev \
+    liblapack-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Definir o diretório de trabalho
