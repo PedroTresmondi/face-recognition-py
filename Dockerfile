@@ -23,7 +23,11 @@ RUN apt-get update && apt-get install -y \
     libopenblas-dev \
     liblapack-dev \
     wget \
+    zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
+
+# Verificar a instalação do cmake
+RUN cmake --version
 
 # Definir o diretório de trabalho
 WORKDIR /app
