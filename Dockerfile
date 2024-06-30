@@ -1,16 +1,11 @@
-# Use uma imagem base oficial do Ubuntu
-FROM ubuntu:20.04
+# Use uma imagem base oficial do Python 3.8
+FROM python:3.8-slim
 
 # Definir variáveis de ambiente para evitar prompts durante a instalação
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Instalar dependências do sistema necessárias para compilar bibliotecas
 RUN apt-get update && apt-get install -y \
-    python3.8 \
-    python3.8-dev \
-    python3-pip \
-    python3-distutils \
-    python3-setuptools \
     cmake \
     g++ \
     make \
@@ -37,7 +32,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Atualizar o pip, instalar cmake e wheel primeiro
-RUN python3.8 -m pip install --upgrade pip
+RUN python3 -m pip install --upgrade pip
 RUN pip install wheel cmake setuptools
 
 # Instalar dlib diretamente
@@ -54,4 +49,4 @@ COPY . .
 EXPOSE 5000
 
 # Comando para rodar a aplicação
-CMD ["python3.8", "backend/app.py"]
+CMD ["python", "backend/app.py"]
