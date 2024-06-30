@@ -35,3 +35,6 @@ firebase.json
 # Ignoring other specific files
 package-lock.json
 package.json
+.vercel
+
+venv

@@ -44,11 +44,11 @@ RUN pip install wheel setuptools
 RUN pip install dlib==19.24.0
 
 # Copiar os arquivos de requirements e instalar as dependências do Python
-COPY requirements.txt /app/requirements.txt
+COPY backend/requirements.txt /app/requirements.txt
 RUN pip install -r /app/requirements.txt
 
 # Copiar o restante dos arquivos do projeto
-COPY . .
+COPY backend .
 
 # Expor a porta que o Flask usará
 EXPOSE 5000

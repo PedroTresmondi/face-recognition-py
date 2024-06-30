@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "builds": [
+  "builds": [],
+  "routes": [
     {
-      "src": "Dockerfile",
-      "use": "@vercel/docker"
+      "src": "/(.*)",
+      "dest": "https://pedro3smondi/face-recognition:latest"
     }
   ]
 }

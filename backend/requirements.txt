@@ -34,7 +34,7 @@ itsdangerous==2.2.0
 Jinja2==3.1.4
 MarkupSafe==2.1.5
 msgpack==1.0.8
-numpy==1.24.4
+numpy==1.24.4  # Altere esta linha para uma versão compatível
 opencv-python==4.10.0.84
 opencv-python-headless==4.10.0.84
 packaging==24.1
@@ -57,4 +57,4 @@ uritemplate==4.1.1
 urllib3==2.2.2
 Werkzeug==3.0.3
 wheel==0.43.0
-dlib==19.24.0
+setuptools
