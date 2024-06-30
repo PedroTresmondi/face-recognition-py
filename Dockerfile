@@ -1,8 +1,14 @@
-# Use uma imagem base oficial do Python
-FROM python:3.11-slim
+# Use uma imagem base oficial do Ubuntu
+FROM ubuntu:20.04
+
+# Definir variáveis de ambiente para evitar prompts durante a instalação
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Instalar dependências do sistema necessárias para compilar bibliotecas
 RUN apt-get update && apt-get install -y \
+    python3.8 \
+    python3.8-dev \
+    python3-pip \
     cmake \
     g++ \
     make \
@@ -17,25 +23,34 @@ RUN apt-get update && apt-get install -y \
     libopenblas-dev \
     liblapack-dev \
     wget \
+    zlib1g-dev \
+    libglib2.0-0 \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Definir o diretório de trabalho
 WORKDIR /app
 
-# Copiar os arquivos de requirements
+# Atualizar o pip, instalar cmake e wheel primeiro
+RUN python3.8 -m pip install --upgrade pip
+RUN pip install wheel cmake
+
+# Instalar dlib diretamente
+RUN pip install dlib==19.24.0
+
+# Copiar os arquivos de requirements e instalar as dependências do Python
 COPY requirements.txt .
-
-# Atualizar pip, wheel e cmake primeiro
-RUN pip install --upgrade pip wheel cmake
-
-# Instalar as dependências do Python
 RUN pip install -r requirements.txt
 
 # Copiar o restante dos arquivos do projeto
 COPY . .
 
+# Copiar o arquivo .env para o contêiner
+COPY .env .env
+
 # Expor a porta que o Flask usará
 EXPOSE 5000
 
 # Comando para rodar a aplicação
-CMD ["python3", "backend/app.py"]
+CMD ["python3.8", "backend/app.py"]
