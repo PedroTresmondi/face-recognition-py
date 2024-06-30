@@ -4,11 +4,12 @@ FROM ubuntu:20.04
 # Definir variáveis de ambiente para evitar prompts durante a instalação
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Instalar dependências do sistema necessárias para compilar bibliotecas
+# Atualizar e instalar dependências do sistema necessárias para compilar bibliotecas
 RUN apt-get update && apt-get install -y \
     python3.11 \
     python3.11-dev \
     python3-pip \
+    cmake \
     g++ \
     make \
     libboost-python-dev \
@@ -25,20 +26,19 @@ RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Verificar a instalação do cmake
-RUN apt-get install -y cmake
-RUN cmake --version
-
 # Definir o diretório de trabalho
 WORKDIR /app
 
-# Atualizar o pip e instalar as dependências do Python
+# Atualizar o pip e instalar cmake
 RUN python3.11 -m pip install --upgrade pip
+RUN pip install cmake
+
+# Instalar dlib separadamente com suas dependências
+RUN pip install dlib==19.24.0
+
+# Copiar os arquivos de requirements e instalar as dependências do Python
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
-
-# Instalar o dlib a partir do repositório GitHub
-RUN pip3 install git+https://github.com/davisking/dlib.git
 
 # Copiar o restante dos arquivos do projeto
 COPY . .
