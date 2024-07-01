@@ -37,7 +37,7 @@ function AuthPage() {
     formData.append('image', blob);
 
     try {
-      const response = await axios.post('/api/detect', formData, {
+      const response = await axios.post('http://localhost:5000/detect', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -53,7 +53,19 @@ function AuthPage() {
       <h1>Face Recognition</h1>
       <video ref={videoRef} width="640" height="480" autoPlay></video>
       <canvas ref={canvasRef} width="640" height="480" style={{ display: 'none' }}></canvas>
-      {result && (
+      {result && result.length > 0 ? (
+        <div>
+          <h2>Identified Person:</h2>
+          {result.map((person, index) => (
+            <div key={index} style={{ marginBottom: '20px', border: '1px solid #ddd', padding: '10px', borderRadius: '5px' }}>
+              <p style={{ fontSize: '1.5em', fontWeight: 'bold' }}>Name: {person.name}</p>
+              <p>Email: {person.email}</p>
+              <p>ID: {person.id}</p>
+              <p>Authentication Time: {person.time}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
         <div>
           <h2>Results:</h2>
           <pre>{JSON.stringify(result, null, 2)}</pre>

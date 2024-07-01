@@ -38,3 +38,4 @@ package.json
 .vercel
 
 venv
+firebase_credentials.json
