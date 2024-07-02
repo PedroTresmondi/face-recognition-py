@@ -6,7 +6,7 @@ import {
   ref as storageReference,
   uploadBytes,
 } from "firebase/storage";
-import { app } from "./firebase/firebaseConfig";
+import { app } from "../firebase/firebaseConfig";
 
 const generateUniqueId = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();
@@ -66,7 +66,7 @@ const RegisterPage = () => {
   };
 
   const resizeImage = async (imageSrc, maxWidth, maxHeight) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       const img = new Image();
       img.onload = () => {
         const canvas = document.createElement("canvas");

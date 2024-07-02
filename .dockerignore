@@ -1,0 +1,87 @@
+# flyctl launch added from .gitignore
+# Logs
+**\logs
+**\*.log
+**\npm-debug.log*
+**\yarn-debug.log*
+**\yarn-error.log*
+**\pnpm-debug.log*
+**\lerna-debug.log*
+
+# Dependency directories
+**\node_modules
+**\dist
+**\dist-ssr
+**\*.local
+
+# Editor directories and files
+**\.vscode\*
+!**\.vscode\extensions.json
+**\.idea
+**\.DS_Store
+**\*.suo
+**\*.ntvs*
+**\*.njsproj
+**\*.sln
+**\*.sw?
+
+# Environment files
+
+
+
+# Firebase
+**\.firebase
+**\firebase.json
+
+# Ignoring other specific files
+**\package-lock.json
+**\package.json
+**\.vercel
+
+**\venvz
+
+
+# flyctl launch added from backend\.gitignore
+
+
+# flyctl launch added from backend\.venv\.gitignore
+
+# flyctl launch added from frontend\face-auth\.gitignore
+# Logs
+frontend\face-auth\**\logs
+frontend\face-auth\**\*.log
+frontend\face-auth\**\npm-debug.log*
+frontend\face-auth\**\yarn-debug.log*
+frontend\face-auth\**\yarn-error.log*
+frontend\face-auth\**\pnpm-debug.log*
+frontend\face-auth\**\lerna-debug.log*
+
+frontend\face-auth\**\node_modules
+frontend\face-auth\**\dist
+frontend\face-auth\**\dist-ssr
+frontend\face-auth\**\*.local
+
+# Editor directories and files
+frontend\face-auth\**\.vscode\*
+!frontend\face-auth\**\.vscode\extensions.json
+frontend\face-auth\**\.idea
+frontend\face-auth\**\.DS_Store
+frontend\face-auth\**\*.suo
+frontend\face-auth\**\*.ntvs*
+frontend\face-auth\**\*.njsproj
+frontend\face-auth\**\*.sln
+frontend\face-auth\**\*.sw?
+
+frontend\face-auth\**\.env
+fly.toml
+
+*.git
+*.log
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+venv/
+node_modules/
+.dockerignore
+Dockerfile

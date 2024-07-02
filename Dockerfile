@@ -1,16 +1,10 @@
-# Use uma imagem base oficial do Ubuntu
-FROM ubuntu:20.04
+FROM python:3.8-slim
 
 # Definir variáveis de ambiente para evitar prompts durante a instalação
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Instalar dependências do sistema necessárias para compilar bibliotecas
 RUN apt-get update && apt-get install -y \
-    python3.8 \
-    python3.8-dev \
-    python3-pip \
-    python3-distutils \
-    python3-setuptools \
     cmake \
     g++ \
     make \
@@ -37,21 +31,21 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Atualizar o pip, instalar cmake e wheel primeiro
-RUN python3.8 -m pip install --upgrade pip
-RUN pip install wheel setuptools
-
-# Instalar dlib diretamente
-RUN pip install dlib==19.24.0
+RUN pip install --upgrade pip \
+    && pip install wheel setuptools \
+    && pip install dlib==19.24.0
 
 # Copiar os arquivos de requirements e instalar as dependências do Python
 COPY backend/requirements.txt /app/requirements.txt
 RUN pip install -r /app/requirements.txt
 
 # Copiar o restante dos arquivos do projeto
-COPY backend .
+COPY backend/ /app/
+
+COPY backend/firebase_credentials.json /app/firebase_credentials.json
 
 # Expor a porta que o Flask usará
 EXPOSE 5000
 
 # Comando para rodar a aplicação
-CMD ["python3.8", "backend/app.py"]
+CMD ["python", "app.py"]

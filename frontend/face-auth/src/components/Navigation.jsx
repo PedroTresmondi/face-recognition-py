@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Navigation() {
@@ -8,7 +7,7 @@ function Navigation() {
         <li>
           <Link
             to="/auth"
-            className="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded transition duration-300"
+            className="text-white bg-blue-500 hover:bg-green-600 px-4 py-2 rounded transition duration-300"
           >
             Auth
           </Link>
@@ -16,7 +15,7 @@ function Navigation() {
         <li>
           <Link
             to="/register"
-            className="text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded transition duration-300"
+            className="text-white bg-blue-500 hover:bg-green-600 px-4 py-2 rounded transition duration-300"
           >
             Register
           </Link>

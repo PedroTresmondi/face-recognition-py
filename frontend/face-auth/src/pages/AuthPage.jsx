@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 
 function AuthPage() {
@@ -41,7 +41,7 @@ function AuthPage() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/detect",
+        'https://face-recognition-py-snowy-dream-6989.fly.dev/detect',
         formData,
         {
           headers: {
@@ -56,24 +56,34 @@ function AuthPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen ">
-      <div className="flex flex-col items-center text-center p-8 rounded shadow-md ">
+    <div className="flex items-center justify-center min-h-screen overflow-y-hidden">
+      <div className="flex flex-col items-center text-center p-8 rounded shadow-md">
         <h1 className="text-2xl font-bold mb-4">Face Recognition</h1>
-        <video ref={videoRef} width="640" height="480" autoPlay className="mb-4 border border-gray-300 rounded"></video>
+        <video
+          ref={videoRef}
+          width="640"
+          height="480"
+          autoPlay
+          className="mb-4 border border-gray-300 rounded"
+        ></video>
         <canvas
           ref={canvasRef}
           width="640"
           height="480"
           style={{ display: "none" }}
         ></canvas>
+
         {result && result.length > 0 ? (
           <div className="w-full">
-            <h2 className="text-xl font-semibold mb-2">Identified Person:</h2>
             {result.map((person, index) => (
               <div
                 key={index}
                 className="mb-4 border border-gray-300 p-4 rounded"
               >
+                <h2 className="text-xl font-semibold mb-2">
+                  Identified Person:
+                </h2>
+
                 <p className="text-lg font-bold">Name: {person.name}</p>
                 <p>Email: {person.email}</p>
                 <p>ID: {person.id}</p>
@@ -81,10 +91,11 @@ function AuthPage() {
               </div>
             ))}
           </div>
-        ) : (
+        ) : null}
+        {/* Exibe mensagem quando não há resultados */}
+        {result && result.length === 0 && (
           <div className="w-full">
-            <h2 className="text-xl font-semibold mb-2">Results:</h2>
-            <pre>{JSON.stringify(result, null, 2)}</pre>
+            <h2 className="text-xl font-semibold mb-2">No Results</h2>
           </div>
         )}
       </div>

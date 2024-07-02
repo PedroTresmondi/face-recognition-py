@@ -14,33 +14,43 @@ def get_images_from_storage():
             img_array = np.frombuffer(blob.download_as_string(), np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             images[user_id] = img
+            print(f'Imagem carregada: {user_id}')
     return images
 
-def find_encoding(imagesList):
+def find_encoding(imagesList, personIds):
     encodeList = []
-    for img in imagesList:
+    validPersonIds = []
+    for img, person_id in zip(imagesList, personIds):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        encode = face_recognition.face_encodings(img)[0]
-        encodeList.append(encode)
-    return encodeList
+        encodings = face_recognition.face_encodings(img)
+        if encodings:
+            encode = encodings[0]
+            encodeList.append(encode)
+            validPersonIds.append(person_id)
+        else:
+            print(f"Nenhuma face encontrada para o ID: {person_id}")
+    return encodeList, validPersonIds
 
-# Carregar imagens do Firebase Storage
-images_from_storage = get_images_from_storage()
+def update_encodings():
+    images_from_storage = get_images_from_storage()
+    personIds = list(images_from_storage.keys())
+    imgList = list(images_from_storage.values())
+    
+    print(f"Person IDs from storage: {personIds}")
+    print("Encoding iniciado...")
 
-# Separar IDs e imagens
-personIds = list(images_from_storage.keys())
-imgList = list(images_from_storage.values())
+    if not imgList:
+        print("No images found in storage.")
+        return
 
-print(personIds)
+    encodeListKnown, validPersonIds = find_encoding(imgList, personIds)
+    encodeListKnownWithIds = [encodeListKnown, validPersonIds]
+    
+    print("Encoding completo!")
+    with open("encodeFile.p", 'wb') as file:
+        pickle.dump(encodeListKnownWithIds, file)
+    
+    print("Arquivo salvo")
 
-print("Encoding iniciado...")
-encodeListKnown = find_encoding(imgList)
-encodeListKnownWithIds = [encodeListKnown, personIds]
-
-print("Encoding completo!")
-
-# Salvar os encodings
-with open("encodeFile.p", 'wb') as file:
-    pickle.dump(encodeListKnownWithIds, file)
-
-print("Arquivo salvo")
+if __name__ == "__main__":
+    update_encodings()

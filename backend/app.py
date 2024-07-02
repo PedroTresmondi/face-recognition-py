@@ -2,25 +2,20 @@ from flask import Flask, request, jsonify
 from firebase_config import storage, db
 import cv2
 import face_recognition
+from flask_cors import CORS
 import numpy as np
 import pickle
 import os
-from flask_cors import CORS
-import logging
-from datetime import datetime
+import threading
+import subprocess
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
-
-# Configuração de logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Carregar encodings conhecidos
 def load_encodings():
     global encodeListKnown, personIds
-    encode_file_path = os.path.join(os.path.dirname(__file__), 'encodeFile.p')
-    with open(encode_file_path, 'rb') as file:
+    with open('encodeFile.p', 'rb') as file:
         encodeListKnownWithIds = pickle.load(file)
     encodeListKnown, personIds = encodeListKnownWithIds
 
@@ -35,15 +30,13 @@ def detect_faces_and_encodings(img):
 
 @app.route('/detect', methods=['POST'])
 def detect():
-    logger.info("Received a detection request")
-
+    load_encodings() 
     file = request.files['image']
     img = cv2.imdecode(np.frombuffer(file.read(), np.uint8), cv2.IMREAD_COLOR)
 
     face_locations, face_encodings = detect_faces_and_encodings(img)
 
     results = []
-    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     for encodeFace, faceLoc in zip(face_encodings, face_locations):
         matches = face_recognition.compare_faces(encodeListKnown, encodeFace)
         faceDistance = face_recognition.face_distance(encodeListKnown, encodeFace)
@@ -52,28 +45,27 @@ def detect():
         if matches[matchIndex] and faceDistance[matchIndex] < 0.6:
             detected_id = personIds[matchIndex]
             personInfo = db.reference(f'Person/{detected_id}').get()
-            name = personInfo.get('name', 'Unknown') if personInfo else 'Unknown'
-            email = personInfo.get('email', 'Unknown') if personInfo else 'Unknown'
-            logger.info(f"Detected person: {name} (ID: {detected_id})")
             results.append({
                 'id': detected_id,
-                'name': name,
-                'email': email,
-                'time': current_time,
+                'name': personInfo['name'] if personInfo else 'Unknown',
                 'location': faceLoc
             })
         else:
-            logger.info("Detected unknown person")
-            results.append({
-                'id': None,
-                'name': 'Unknown',
-                'email': 'Unknown',
-                'time': current_time,
-                'location': faceLoc
-            })
+            results.append({'id': None, 'name': 'Unknown', 'location': faceLoc})
 
-    logger.info(f"Detection results: {results}")
     return jsonify(results)
 
+def person_listener(event):
+    print('Novo registro adicionado à coleção Person')
+    print('Evento recebido:', event.event_type, event.path, event.data)
+    subprocess.call(["python", os.path.join(os.path.dirname(__file__), "EncodeGenerator.py")])
+    load_encodings() 
+
+def start_listener():
+    person_ref = db.reference('Person')
+    person_ref.listen(person_listener)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    threading.Thread(target=start_listener).start()
+    app.run(host="0.0.0.0", port=5000)
+

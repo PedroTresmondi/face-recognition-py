@@ -1,8 +1,7 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AuthPage from './AuthPage';
-import RegisterPage from './Register';
-import Navigation from './Navigation';
+import AuthPage from './pages/AuthPage';
+import RegisterPage from './pages/Register';
+import Navigation from './components/Navigation';
 
 function App() {
   return (

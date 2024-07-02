@@ -58,3 +58,4 @@ urllib3==2.2.2
 Werkzeug==3.0.3
 wheel==0.43.0
 setuptools
+Flask-Cors==4.0.1
