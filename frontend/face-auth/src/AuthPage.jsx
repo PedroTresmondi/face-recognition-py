@@ -56,10 +56,10 @@ function AuthPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="flex flex-col items-center text-center p-8 rounded shadow-md">
+    <div className="flex items-center justify-center min-h-screen ">
+      <div className="flex flex-col items-center text-center p-8 rounded shadow-md ">
         <h1 className="text-2xl font-bold mb-4">Face Recognition</h1>
-        <video ref={videoRef} width="640" height="480" autoPlay className="mb-4"></video>
+        <video ref={videoRef} width="640" height="480" autoPlay className="mb-4 border border-gray-300 rounded"></video>
         <canvas
           ref={canvasRef}
           width="640"

@@ -29,9 +29,11 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column; 
   min-width: 320px;
   min-height: 100vh;
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87); 
 }
 
 h1 {
@@ -71,10 +73,10 @@ button:focus-visible {
   }
 }
 
-
 nav ul {
   list-style-type: none;
   padding: 0;
+  margin: 0; /* Adicione margin: 0 para remover margens padrão */
 }
 
 nav ul li {
