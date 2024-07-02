@@ -77,7 +77,7 @@ function AuthPage() {
                 <p className="text-lg font-bold">Name: {person.name}</p>
                 <p>Email: {person.email}</p>
                 <p>ID: {person.id}</p>
-                <p>Authentication Time: {person.time}</p>
+                <p>Autenticado em: {person.time}</p>
               </div>
             ))}
           </div>

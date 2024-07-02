@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
-import Webcam from 'react-webcam';
-import { getDatabase, ref, set } from 'firebase/database';
-import { getStorage, ref as storageReference, uploadBytes } from 'firebase/storage';
-import { app } from './firebase/firebaseConfig';
+import React, { useState } from "react";
+import Webcam from "react-webcam";
+import { getDatabase, ref, set } from "firebase/database";
+import {
+  getStorage,
+  ref as storageReference,
+  uploadBytes,
+} from "firebase/storage";
+import { app } from "./firebase/firebaseConfig";
 
 const generateUniqueId = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();
 };
 
 const RegisterPage = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [imageSrc, setImageSrc] = useState(null);
   const [step, setStep] = useState(1);
   const webcamRef = React.useRef(null);
@@ -29,32 +33,34 @@ const RegisterPage = () => {
       await set(newUserRef, {
         name: name,
         email: email,
-        photoId: userId
+        photoId: userId,
       });
 
       if (imageSrc) {
         await saveImageToStorage(userId, imageSrc);
       }
 
-      alert('Usuário registrado com sucesso!');
-      setName('');
-      setEmail('');
+      alert("Usuário registrado com sucesso!");
+      setName("");
+      setEmail("");
       setImageSrc(null);
       setStep(1);
     } catch (error) {
-      console.error('Erro ao registrar usuário:', error);
-      alert('Erro ao registrar usuário. Verifique o console para mais detalhes.');
+      console.error("Erro ao registrar usuário:", error);
+      alert(
+        "Erro ao registrar usuário. Verifique o console para mais detalhes."
+      );
     }
   };
 
   const saveImageToStorage = async (userId, imageSrc) => {
     try {
       const resizedImage = await resizeImage(imageSrc, 216, 216);
-      const blobImage = await fetch(resizedImage).then(res => res.blob());
+      const blobImage = await fetch(resizedImage).then((res) => res.blob());
       const imageRef = storageReference(storage, `Images/${userId}.png`);
       await uploadBytes(imageRef, blobImage);
     } catch (error) {
-      console.error('Erro ao salvar imagem no Storage:', error);
+      console.error("Erro ao salvar imagem no Storage:", error);
       throw error;
     }
   };
@@ -63,7 +69,7 @@ const RegisterPage = () => {
     return new Promise((resolve, reject) => {
       const img = new Image();
       img.onload = () => {
-        const canvas = document.createElement('canvas');
+        const canvas = document.createElement("canvas");
         let width = img.width;
         let height = img.height;
 
@@ -82,12 +88,12 @@ const RegisterPage = () => {
         canvas.width = width;
         canvas.height = height;
 
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext("2d");
         ctx.drawImage(img, 0, 0, width, height);
 
-        canvas.toBlob(blob => {
+        canvas.toBlob((blob) => {
           resolve(URL.createObjectURL(blob));
-        }, 'image/jpeg');
+        }, "image/jpeg");
       };
       img.src = imageSrc;
     });
@@ -105,7 +111,9 @@ const RegisterPage = () => {
       {step === 1 && (
         <div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Nome:</label>
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Nome:
+            </label>
             <input
               type="text"
               value={name}
@@ -114,7 +122,9 @@ const RegisterPage = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">E-mail:</label>
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              E-mail:
+            </label>
             <input
               type="email"
               value={email}
@@ -138,8 +148,11 @@ const RegisterPage = () => {
               audio={false}
               ref={webcamRef}
               screenshotFormat="image/png"
-              className="w-full h-full"
+              width={640}
+              height={480}
+              className="w-full h-full border border-gray-300 rounded"
             />
+
             <div className="absolute top-1/2 left-1/2 w-54 h-54 -mt-27 -ml-27 border-2 border-red-500 box-border" />
           </div>
           <button
