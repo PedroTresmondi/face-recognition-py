@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Webcam from 'react-webcam';
 import { getDatabase, ref, set } from 'firebase/database';
 import { getStorage, ref as storageReference, uploadBytes } from 'firebase/storage';
-import { app } from './firebase/firebaseConfig'; 
+import { app } from './firebase/firebaseConfig';
 
 const generateUniqueId = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();
@@ -12,6 +12,7 @@ const RegisterPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [imageSrc, setImageSrc] = useState(null);
+  const [step, setStep] = useState(1);
   const webcamRef = React.useRef(null);
   const database = getDatabase(app);
   const storage = getStorage(app);
@@ -39,6 +40,7 @@ const RegisterPage = () => {
       setName('');
       setEmail('');
       setImageSrc(null);
+      setStep(1);
     } catch (error) {
       console.error('Erro ao registrar usuário:', error);
       alert('Erro ao registrar usuário. Verifique o console para mais detalhes.');
@@ -91,40 +93,72 @@ const RegisterPage = () => {
     });
   };
 
+  const nextStep = () => {
+    if (step === 1 && name && email) {
+      setStep(2);
+    }
+  };
+
   return (
-    <div>
-      <h2>Cadastro de Usuário</h2>
-      <div>
-        <label>Nome:</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-      </div>
-      <div>
-        <label>E-mail:</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      </div>
-      <div style={{ position: 'relative', width: '612px', height: '480px' }}>
-        <Webcam
-          audio={false}
-          ref={webcamRef}
-          screenshotFormat="image/png"
-          width={612}
-          height={480}
-        />
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          width: '216px',
-          height: '216px',
-          marginTop: '-108px',
-          marginLeft: '-108px',
-          border: '2px solid red',
-          boxSizing: 'border-box',
-        }} />
-      </div>
-      <button onClick={capture}>Capturar Foto</button>
-      {imageSrc && <img src={imageSrc} alt="Captured" />}
-      <button onClick={handleSave}>Salvar</button>
+    <div className="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <h2 className="text-2xl font-bold mb-4">Cadastro de Usuário</h2>
+      {step === 1 && (
+        <div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">Nome:</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">E-mail:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <button
+            onClick={nextStep}
+            disabled={!name || !email}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+          >
+            Próximo
+          </button>
+        </div>
+      )}
+      {step === 2 && (
+        <div>
+          <div className="relative mb-4">
+            <Webcam
+              audio={false}
+              ref={webcamRef}
+              screenshotFormat="image/png"
+              className="w-full h-full"
+            />
+            <div className="absolute top-1/2 left-1/2 w-54 h-54 -mt-27 -ml-27 border-2 border-red-500 box-border" />
+          </div>
+          <button
+            onClick={capture}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
+          >
+            Capturar Foto
+          </button>
+          {imageSrc && <img src={imageSrc} alt="Captured" className="mb-4" />}
+          {imageSrc && (
+            <button
+              onClick={handleSave}
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Enviar
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };
