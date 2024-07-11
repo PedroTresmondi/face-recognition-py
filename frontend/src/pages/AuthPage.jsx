@@ -41,7 +41,8 @@ function AuthPage() {
 
     try {
       const response = await axios.post(
-        'https://face-recognition-py-snowy-dream-6989.fly.dev/detect',
+        // api do fly.io https://face-recognition-py-snowy-dream-6989.fly.dev/detect
+        '/api/detect',  //api local
         formData,
         {
           headers: {
@@ -87,7 +88,7 @@ function AuthPage() {
                 <p className="text-lg font-bold">Name: {person.name}</p>
                 <p>Email: {person.email}</p>
                 <p>ID: {person.id}</p>
-                <p>Autenticado em: {person.time}</p>
+                <p>Autenticado em: {person.autenticado_em}</p>  {/* Atualizado para exibir autenticado_em */}
               </div>
             ))}
           </div>

@@ -8,6 +8,7 @@ import pickle
 import os
 import threading
 import subprocess
+from datetime import datetime  
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -47,11 +48,13 @@ def detect():
             personInfo = db.reference(f'Person/{detected_id}').get()
             results.append({
                 'id': detected_id,
+                'email': personInfo['email'] if personInfo else 'Unknown',
                 'name': personInfo['name'] if personInfo else 'Unknown',
-                'location': faceLoc
+                'location': faceLoc,
+                'autenticado_em': datetime.now().strftime('%Y-%m-%d %H:%M:%S')  
             })
         else:
-            results.append({'id': None, 'name': 'Unknown', 'location': faceLoc})
+            results.append({'id': None, 'name': 'Unknown', 'location': faceLoc, 'autenticado_em': datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
 
     return jsonify(results)
 
@@ -68,4 +71,3 @@ def start_listener():
 if __name__ == '__main__':
     threading.Thread(target=start_listener).start()
     app.run(host="0.0.0.0", port=5000)
-
